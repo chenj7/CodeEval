@@ -2,3 +2,4 @@ CodeEval.iml
 .idea
 .gradle
 build
+out
