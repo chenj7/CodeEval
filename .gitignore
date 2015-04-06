@@ -1,2 +1,4 @@
 CodeEval.iml
 .idea
+.gradle
+build
