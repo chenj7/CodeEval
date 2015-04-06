@@ -25,17 +25,17 @@ public final class Main {
             this.N = N;
         }
 
-        public String compute() throws ArithmeticException {
-            String result = "1";
-            for(int i = 2; i <= N; ++i) {
+        public String[] compute() throws ArithmeticException {
+            String[] result = new String[N];
+            for(int i = 1; i <= N; ++i) {
                 if(i % X == 0 && i % Y == 0) {
-                    result += " FB";
+                    result[i-1] = "FB";
                 }else if(i % X == 0) {
-                    result += " F";
+                    result[i-1] = "F";
                 } else if(i % Y == 0) {
-                    result += " B";
+                    result[i-1] = "B";
                 } else {
-                    result += " " + i;
+                    result[i-1] = "" + i;
                 }
             }
 
@@ -54,8 +54,17 @@ public final class Main {
                 continue;
             }
             fizzBuzz = new FizzBuzz(params[0], params[1], params[2]);
-            printOut(fizzBuzz.compute());
+            printOut(joinResult(fizzBuzz.compute()));
         }
+    }
+
+    public static String joinResult(String[] results) {
+        StringBuilder sb = new StringBuilder();
+        for(String result : results) {
+            sb.append(result);
+            sb.append(" ");
+        }
+        return sb.toString().trim();
     }
 
     public static int[] parseLine(String line) {

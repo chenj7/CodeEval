@@ -31,4 +31,10 @@ public class MainTest {
         assertEquals(4, result[1]);
         assertEquals(5, result[2]);
     }
+
+    @Test
+    public void shouldProperlyJointResultArray() {
+        String[] result = { "1", "2", "F" , "B", "5" };
+        assertEquals("1 2 F B 5", Main.joinResult(result));
+    }
 }

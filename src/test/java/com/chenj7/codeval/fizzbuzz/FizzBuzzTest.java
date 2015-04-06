@@ -9,65 +9,65 @@ import static org.junit.Assert.*;
  * Created by chenj7 on 4/6/2015.
  */
 public class FizzBuzzTest {
-    private String[] parseResult(final String input) {
-        return input.split(" ");
+    private String at(final String[] input, int index) {
+        return input[index - 1];
     }
 
     @Test
     public void shouldReturnListTheSizeOfTheThirdParameter() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(2, 3, 4);
-        String result = fizzBuzz.compute();
+        String[] result = fizzBuzz.compute();
 
-        assertEquals("should return string with 4 items", 4, parseResult(result).length);
+        assertEquals("should return with 4 items", 4, result.length);
 
         fizzBuzz = new Main.FizzBuzz(5, 3, 8);
         result = fizzBuzz.compute();
 
-        assertEquals("should return string with 8 items", 8, parseResult(result).length);
+        assertEquals("should return with 8 items", 8, result.length);
     }
 
     @Test
     public void shouldReturnListWithLetterFForItemsDivisibleByFirstParameter() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(3, 12, 10);
-        String result = fizzBuzz.compute();
+        String[] result = fizzBuzz.compute();
 
-        assertEquals("should have 3, 6, 9 be replaced by F", "1 2 F 4 5 F 7 8 F 10", result);
+        assertEquals("should have 3 replaced by F", "F", at(result, 3));
+        assertEquals("should have 6 replaced by F", "F", at(result, 6));
+        assertEquals("should have 9 replaced by F", "F", at(result, 9));
     }
 
     @Test
     public void shouldReturnListWithLetterBForItemsDivisibleBySecondParameter() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(12, 3, 10);
-        String result = fizzBuzz.compute();
+        String[] result = fizzBuzz.compute();
 
-        assertEquals("should have 3, 6, 9 be replaced by B", "1 2 B 4 5 B 7 8 B 10", result);
+        assertEquals("should have 3 replaced by B", "B", at(result, 3));
+        assertEquals("should have 6 replaced by B", "B", at(result, 6));
+        assertEquals("should have 9 replaced by B", "B", at(result, 9));
     }
 
     @Test
     public void shouldReturnListWithLettersFBForItemsDivisibleByBothParameters() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(2, 7, 15);
-        String result = fizzBuzz.compute();
+        String[] result = fizzBuzz.compute();
 
-        assertEquals("1 F 3 F 5 F B F 9 F 11 F 13 FB 15", result);
+        assertEquals("FB", at(result, 14));
     }
 
     @Test(expected = ArithmeticException.class)
     public void shouldThrowArithmeticExceptionOnZeroInputParameter() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(0, 4, 5);
-        String result = fizzBuzz.compute();
-
-        assertEquals("first parameter zero", "", result);
+        fizzBuzz.compute();
 
         fizzBuzz = new Main.FizzBuzz(4, 0, 5);
-        result = fizzBuzz.compute();
-
-        assertEquals("second parameter zero", "", result);
+        fizzBuzz.compute();
     }
 
     @Test
     public void shouldHandleInputForSingleItem() {
         Main.FizzBuzz fizzBuzz = new Main.FizzBuzz(1, 2, 1);
-        String result = fizzBuzz.compute();
+        String[] result = fizzBuzz.compute();
 
-        assertEquals("1", result);
+        assertEquals("F", at(result, 1));
     }
 }
