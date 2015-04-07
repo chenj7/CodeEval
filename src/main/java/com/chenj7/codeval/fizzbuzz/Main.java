@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * Write a program that prints out the final series of numbers where those divisible by X, Y and both
- * are replaced by “F” for fizz, “B” for buzz and “FB” for fizz buzz.
+ * are replaced by "F" for fizz, "B" for buzz and "FB" for fizz buzz.
  *
  * Your program should accept a file as its first argument. The file contains multiple separated lines; each line
  * contains 3 numbers that are space delimited. The first number is the first divider (X), the second number is the
